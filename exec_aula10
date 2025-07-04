@@ -1,0 +1,59 @@
+#CRIAR UM APLICATIVO PARA DELIVERY DE PIZZARIA
+
+print('='*50)
+print("              PIZZARIA SABOR CASEIRO")
+print('='*50)
+print('-Entregamos sua pizza em qualquer lugar da cidade-')
+print("\n")
+
+val = 0
+piz = 0
+piz1 = "Calabresa"
+piz2 = "4 Queijos"
+piz3 = "Catupiri"
+piz4 = "Palmito"
+piz5 = "Banana"
+
+print("FAÇA SUA ESCOLHA DE PIZZA")
+print('='*25)
+print("===OPÇÃO DE SABORES===")
+print("1 - Calabresa")
+print("2 - 4 Queijos")
+print("3 - Catupiri")
+print("4 - Palmito")
+print("5 - Banana\n")
+
+esc = int(input("Faça sua escolha numérica:"))
+print("\n")
+if esc == 1:
+    piz = piz1
+    val = "R$ 15,00"
+    print(f"Voce escolheu {piz}, custando {val}")
+elif esc == 2:
+     piz = piz2
+     val = "R$ 17,00"
+     print(f"Voce escolheu {piz}, custando {val}")
+elif esc == 3:
+     piz = piz3
+     val = "R$ 20,00"
+     print(f"Voce escolheu {piz}, custando {val}")
+elif esc == 4:
+     piz = piz4
+     val = "R$ 17,00"
+     print(f"Voce escolheu {piz}, custando {val}")
+elif esc == 5:
+     piz = piz5
+     val = "R$ 15,00"
+     print(f"Voce escolheu {piz}, custando {val}")
+
+else:
+    print('POR FAVOR DIGITE UMA OPÇÃO VÁLIDA') 
+
+print('='*50)
+print('='*50)
+print("\n")
+print("ESCOLHA A BEBIDA")
+print('='*16)   
+
+
+

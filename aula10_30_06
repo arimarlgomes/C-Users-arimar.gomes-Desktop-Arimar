@@ -1,0 +1,96 @@
+print("--- Calculadora de Contas Sabor Carioca ---")
+print("Digite os itens e seus preços. Digite 'fim' para encerrar.")
+
+#CODIGO NÃO COMPLETO (FINAL)
+
+itens = {}
+total_consumo = 0.0
+
+
+while True:
+    item_nome = input("Nome do item (ou 'fim'): ").strip()
+    if item_nome.lower() == 'fim':
+        break
+
+    while True:
+        try:
+            item_preco = float(input(f"Preço de '{item_nome}' (R$): ").replace(',', '.'))
+            if item_preco < 0:
+                print("Preço não pode ser negativo. Tente novamente.")
+            else:
+                itens[item_nome] = item_preco
+                total_consumo += item_preco
+                break
+        except ValueError:
+            print("Entrada inválida. Digite um número para o preço.")
+
+print(f"\nTotal de consumo dos itens: R$ {total_consumo:.2f}")
+
+
+while True:
+    try:
+        num_pessoas = int(input("Digite o número de pessoas na mesa: "))
+        if num_pessoas <= 0:
+            print("O número de pessoas deve ser maior que zero. Tente novamente.")
+        else:
+            break
+    except ValueError:
+        print("Entrada inválida. Digite um número inteiro para o número de pessoas.")
+
+
+while True:
+    try:
+        couvert_por_pessoa = float(input("Valor do Couvert Artístico por pessoa (R$ 0.00 se não houver): ").replace(',', '.'))
+        if couvert_por_pessoa < 0:
+            print("Valor do couvert não pode ser negativo. Tente novamente.")
+        else:
+            break
+    except ValueError:
+        print("Entrada inválida. Digite um número para o couvert.")
+total_couvert = couvert_por_pessoa * num_pessoas
+print(f"Total Couvert Artístico: R$ {total_couvert:.2f}")
+
+
+subtotal_com_couvert = total_consumo + total_couvert
+
+
+while True:
+    try:
+        taxa_servico_percentual = float(input("Porcentagem da Taxa de Serviço (ex: 10 para 10%): ").replace(',', '.'))
+        if not (0 <= taxa_servico_percentual <= 100):
+            print("A taxa de serviço deve ser entre 0 e 100. Tente novamente.")
+        else:
+            break
+    except ValueError:
+        print("Entrada inválida. Digite um número para a porcentagem da taxa de serviço.")
+valor_taxa_servico = subtotal_com_couvert * (taxa_servico_percentual / 100)
+print(f"Valor da Taxa de Serviço ({taxa_servico_percentual}%): R$ {valor_taxa_servico:.2f}")
+
+
+while True:
+    try:
+        gorjeta_percentual = float(input("Porcentagem da Gorjeta (opcional, ex: 10 para 10%): ").replace(',', '.'))
+        if not (0 <= gorjeta_percentual <= 100):
+            print("A gorjeta deve ser entre 0 e 100. Tente novamente.")
+        else:
+            break
+    except ValueError:
+        print("Entrada inválida. Digite um número para a porcentagem da gorjeta.")
+valor_gorjeta = subtotal_com_couvert * (gorjeta_percentual / 100)
+print(f"Valor da Gorjeta ({gorjeta_percentual}%): R$ {valor_gorjeta:.2f}")
+
+
+total_final = subtotal_com_couvert + valor_taxa_servico + valor_gorjeta
+print(f"\n--- Total Geral da Conta: R$ {total_final:.2f} ---\n")
+
+
+print("Opções de Divisão:")
+print("1. Dividir igualmente entre todos")
+print("2. Divisão personalizada")
+
+while True:
+    opcao_divisao = input("Escolha uma opção (1 ou 2): ").strip()
+    if opcao_divisao == '1':
+        valor_por_pessoa = total_final / num_pessoas
+        print(f"\nCada uma das {num_pessoas} pessoas paga: R$ {valor_por_pessoa:.2f}")
+        break

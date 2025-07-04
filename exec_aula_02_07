@@ -1,0 +1,31 @@
+print("--------------------------------------")
+print("         RATEIO DE CHURRASCO            ")
+print("--------------------------------------\n\n")
+
+print("\033[1;4mESCOLHA DA CARNE:\033[m\n\n")
+
+carne = str(input('Que carne voçê vai comprar?:'))
+
+qt_carne = float(input('Quantos KG voçê precisa?:'))
+
+preco = float(input('Digite o preço da carne:'))
+
+
+qtpes = int(input('Quantas pessoas partipará do churrasco?:'))
+    
+while True:
+    print('')
+    print('=======RESUMO DO PEDIDO=======\n')
+
+    print(f'CARNE ESCOLHIDA:', carne,  '\nQUANTOS KG COMPRAR:', qt_carne, '\nPREÇO DA CARNE:', preco, '\nQT DE PESSOAS:', qtpes)
+    conf = input('Confirme se está tudo correto!:')
+    if conf == 'S' or conf == 's':
+        print('OK')
+        break
+    else:
+        print('REFAÇA SEU PEDIDO NOVAMENTE!:')
+        
+print('')
+print('\033[1;4mACOMPANHAMENTO DO CHURRASCO\033[m')
+    
+    
